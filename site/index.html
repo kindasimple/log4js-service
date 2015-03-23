@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <script src="js/log4js.js" /></script>
+  </head>
+  <body>
+
+  <script type="application/javascript" >
+      //Get user Id
+      //Source: http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+      function generateGuid() {
+	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+	      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+		  return v.toString(16);
+		  });
+      }
+
+      var guid;
+
+      //identify user gy generating random guid
+      if(localStorage.guid) { 
+	guid = localStorage.guid;
+      } else {
+	guid = generateGuid();
+      }
+      
+      //set the user id for logging
+      Log4js.userID = guid;
+
+      /**
+      * Create a logger with an AjaxAppender and point it at our web service
+      */
+      var myLogger = new Log4js.getLogger("myCategory");
+      myLogger.setLevel(Log4js.Level.ALL);
+      myLogger.addAppender( new Log4js.AjaxAppender("http://0.0.0.0:8080/log") );
+      myLogger.addAppender( new Log4js.ConsoleAppender(true) ); 
+      
+      /**
+       * Log some messages
+       */
+      myLogger.info('an info');
+      myLogger.warn('a warning');
+      myLogger.error('an error');
+    </script>
+  </body>
+</html>

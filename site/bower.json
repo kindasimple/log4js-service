@@ -1,0 +1,19 @@
+{
+  "name": "log4js-service",
+  "version": "1.0.0",
+  "authors": [
+    "Evan White <kindasimple@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "log4js": "git+https://github.com/kindasimple/log4js#latest"
+  }
+}
