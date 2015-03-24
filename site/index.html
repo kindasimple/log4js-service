@@ -17,12 +17,12 @@
       var guid;
 
       //identify user gy generating random guid
-      if(localStorage.guid) { 
+      if(localStorage.guid) {
 	guid = localStorage.guid;
       } else {
 	guid = generateGuid();
       }
-      
+
       //set the user id for logging
       Log4js.userID = guid;
 
@@ -31,9 +31,9 @@
       */
       var myLogger = new Log4js.getLogger("myCategory");
       myLogger.setLevel(Log4js.Level.ALL);
-      myLogger.addAppender( new Log4js.AjaxAppender("http://0.0.0.0:8080/log") );
-      myLogger.addAppender( new Log4js.ConsoleAppender(true) ); 
-      
+      myLogger.addAppender( new Log4js.AjaxAppender("http://localhost:3000/log") );
+      myLogger.addAppender( new Log4js.ConsoleAppender(true) );
+
       /**
        * Log some messages
        */

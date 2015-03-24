@@ -5,11 +5,12 @@ An web service to interact with a log4js logger
 
 ## Quickstart
 
-    #runs the web service on http://localhost:8080
+    #runs the web service on http://localhost:3000
     cd service
     npm install
-    node index.js
+    node express.js
 
+    #generate log messages
     cd site
     open index.html
 
